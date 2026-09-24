@@ -1,0 +1,292 @@
+:root {
+  /* Core Nesto Color Palette */
+  --bg-black: #050505;
+  --bg-surface-1: #090a0f;
+  --bg-surface-2: #0f1118;
+  --bg-surface-3: #161824;
+  --bg-surface-glass: rgba(15, 17, 24, 0.75);
+  --bg-surface-elevated: rgba(22, 24, 36, 0.85);
+
+  /* Deep Red & Crimson Accents */
+  --red-deep: #8b0000;
+  --red-crimson: #e11d48;
+  --red-electric: #ff1744;
+  --red-glow: rgba(255, 23, 68, 0.35);
+
+  /* Electric Blue & Cyan Accents */
+  --blue-electric: #147bff;
+  --blue-cyan: #00bfff;
+  --blue-deep: #0a4da2;
+  --blue-glow: rgba(20, 123, 255, 0.4);
+
+  /* High Contrast Gradients */
+  --grad-nesto: linear-gradient(135deg, #ff1744 0%, #99002b 45%, #147bff 100%);
+  --grad-nesto-soft: linear-gradient(135deg, rgba(255, 23, 68, 0.15) 0%, rgba(20, 123, 255, 0.15) 100%);
+  --grad-card: linear-gradient(180deg, rgba(22, 24, 36, 0.8) 0%, rgba(9, 10, 15, 0.95) 100%);
+  --grad-blue: linear-gradient(135deg, #147bff 0%, #00bfff 100%);
+  --grad-red: linear-gradient(135deg, #ff1744 0%, #b30026 100%);
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(20, 123, 255, 0.5);
+  --border-neon-red: rgba(255, 23, 68, 0.4);
+  --border-neon-blue: rgba(0, 191, 255, 0.4);
+
+  /* Text & Foreground */
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-bright-cyan: #38bdf8;
+  --text-bright-red: #ff4d6d;
+
+  /* Typography */
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.6);
+  --shadow-glow-blue: 0 0 25px rgba(20, 123, 255, 0.28);
+  --shadow-glow-red: 0 0 25px rgba(255, 23, 68, 0.28);
+  --shadow-modal: 0 25px 50px -12px rgba(0, 0, 0, 0.85);
+
+  /* Transitions */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-black);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom High-Tech Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-electric);
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: var(--bg-surface-glass);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-subtle);
+}
+
+.glass-card {
+  background: var(--grad-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  transition: transform 0.2s var(--ease-spring), border-color 0.2s, box-shadow 0.2s;
+}
+
+.glass-card:hover {
+  border-color: rgba(20, 123, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Brand Gradient Text */
+.text-nesto-gradient {
+  background: var(--grad-nesto);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: var(--font-heading);
+}
+
+.text-blue-gradient {
+  background: var(--grad-blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--grad-nesto);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px var(--red-glow);
+  transition: all 0.2s var(--ease-spring);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px var(--red-glow), 0 0 15px var(--blue-glow);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg-surface-3);
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 10px 18px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-spring);
+}
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-focus);
+}
+
+.btn-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface-3);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.2s var(--ease-spring);
+}
+.btn-icon:hover {
+  background: rgba(20, 123, 255, 0.15);
+  border-color: var(--blue-electric);
+  color: var(--blue-cyan);
+  transform: scale(1.05);
+}
+
+.btn-icon-red {
+  background: rgba(255, 23, 68, 0.15);
+  border-color: rgba(255, 23, 68, 0.3);
+  color: var(--red-electric);
+}
+.btn-icon-red:hover {
+  background: var(--red-electric);
+  color: #fff;
+  border-color: var(--red-electric);
+  box-shadow: 0 0 20px var(--red-glow);
+}
+
+/* Avatars & Glowing Story Rings */
+.avatar-ring {
+  padding: 3px;
+  background: var(--grad-nesto);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s var(--ease-spring);
+}
+.avatar-ring:hover {
+  transform: scale(1.06);
+}
+.avatar-ring-viewed {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Online Status Dot */
+.status-dot-online {
+  width: 11px;
+  height: 11px;
+  background: #10b981;
+  border: 2px solid var(--bg-surface-1);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+}
+.status-dot-away {
+  width: 11px;
+  height: 11px;
+  background: #f59e0b;
+  border: 2px solid var(--bg-surface-1);
+  border-radius: 50%;
+}
+.status-dot-offline {
+  width: 11px;
+  height: 11px;
+  background: #64748b;
+  border: 2px solid var(--bg-surface-1);
+  border-radius: 50%;
+}
+
+/* Pulse animation */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 23, 68, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(255, 23, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 23, 68, 0);
+  }
+}
+.anim-pulse-ring {
+  animation: pulse-ring 2s infinite cubic-bezier(0.45, 0, 0.55, 1);
+}
+
+/* Layout System */
+.nesto-app-layout {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: radial-gradient(circle at 10% 20%, rgba(255, 23, 68, 0.08) 0%, transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(20, 123, 255, 0.08) 0%, transparent 40%),
+              #050505;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Responsive visibility */
+.mobile-only {
+  display: flex;
+}
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none !important;
+  }
+  .desktop-only {
+    display: flex !important;
+  }
+}
